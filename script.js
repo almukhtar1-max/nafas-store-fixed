@@ -247,42 +247,44 @@ if (authForm) {
     clearRegisterToken();
     authTabs.forEach((tab) => tab.classList.toggle("is-active", tab.dataset.authMode === mode));
     const isRegister = mode === "register";
-    authTitle.textContent = isRegister ? "إنشاء حساب" : "تسجيل الدخول";
-    authSubtitle.textContent = isRegister
+    if (authTitle) authTitle.textContent = isRegister ? "إنشاء حساب" : "تسجيل الدخول";
+    if (authSubtitle) authSubtitle.textContent = isRegister
       ? "أنشئ حسابك ثم أرسل رمز تحقق إلى بريدك الإلكتروني لإكمال التسجيل"
       : "أدخل بريدك الإلكتروني والرمز للانتقال مباشرة إلى المتجر";
-    submitAuthBtn.textContent = isRegister ? "إرسال رمز التحقق" : "تسجيل الدخول";
-    authSwitchText.innerHTML = isRegister
-      ? 'لديك حساب بالفعل؟ <a href="#" id="authSwitchLink">سجل الدخول</a>'
-      : 'ليس لديك حساب؟ <a href="#" id="authSwitchLink">سجل الآن</a>';
-    usernameField.hidden = !isRegister;
-    usernameInput.required = isRegister;
-    otpField.hidden = true;
-    otpInput.required = false;
-    otpInput.value = "";
+    if (submitAuthBtn) submitAuthBtn.textContent = isRegister ? "إرسال رمز التحقق" : "تسجيل الدخول";
+    if (authSwitchText) {
+      authSwitchText.innerHTML = isRegister
+        ? 'لديك حساب بالفعل؟ <a href="#" id="authSwitchLink">سجل الدخول</a>'
+        : 'ليس لديك حساب؟ <a href="#" id="authSwitchLink">سجل الآن</a>';
+      attachSwitchHandler();
+    }
+    if (usernameField) usernameField.hidden = !isRegister;
+    if (usernameInput) usernameInput.required = isRegister;
+    if (otpField) otpField.hidden = true;
+    if (otpInput) {
+      otpInput.required = false;
+      otpInput.value = "";
+    }
     showAuthMessage("");
   };
 
   const attachSwitchHandler = () => {
-    const switchLink = $("#authSwitchLink");
+    const switchLink = document.querySelector("#authSwitchLink");
     if (switchLink) {
-      switchLink.addEventListener("click", (event) => {
+      switchLink.onclick = (event) => {
         event.preventDefault();
         setAuthMode(authMode === "login" ? "register" : "login");
-        attachSwitchHandler();
-      });
+      };
     }
   };
 
   authTabs.forEach((tab) =>
     tab.addEventListener("click", () => {
       setAuthMode(tab.dataset.authMode);
-      attachSwitchHandler();
     })
   );
 
   setAuthMode("login");
-  attachSwitchHandler();
 
   authForm.addEventListener("submit", async (event) => {
     event.preventDefault();
