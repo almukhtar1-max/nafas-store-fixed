@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>متجر نفس</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="home-page">
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="brand-group">
+        <a class="brand" href="index.html" aria-label="العودة إلى الصفحة الرئيسة">
+          <img src="assets/logo-nafas.png" alt="شعار متجر نفس">
+        </a>
+        <a class="store-link store-link-profile" href="stores.html" aria-label="الانتقال إلى صفحة المتجر">
+          <span class="store-link-text">المتجر</span>
+        </a>
+      </div>
+      <div class="account-menu">
+        <button class="account-trigger header-frame-button" type="button" aria-expanded="false" aria-controls="accountDropdown">
+          <span class="account-trigger-content">
+            <span class="account-label">تسجيل الدخول</span>
+          </span>
+        </button>
+
+        <div class="dropdown-panel" id="accountDropdown">
+          <a href="login.html">إدارة الحساب</a>
+          <a href="my-store.html">متجري</a>
+          <a href="login.html">المفضلة</a>
+          <a href="login.html">تسجيل الخروج</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="hero-section">
+      <div class="hero-copy">
+        <p class="eyebrow">نكهات منزلية بطابع أصيل</p>
+        <h1>اللذة والإبداع في مكان واحد</h1>
+        <p class="hero-text">
+          متجر نفس يجمع لك أشهى الأطباق المنزلية من أيادٍ ماهرة وشغوفة، حتى تصلك وجبات يومية بطعم دافئ، وجودة موثوقة،
+          وتجربة تعبّر عن كرم المطبخ المنزلي.
+        </p>
+      </div>
+
+      <section class="feature-strip" aria-label="تعريف بالمتجر">
+        <div class="feature-copy">
+          <p class="feature-kicker">عن متجر نفس</p>
+          <h2>منصة منزلية تجمع النكهات الأصيلة وتقرّب المطبخ الدافئ من كل زائر.</h2>
+          <p>
+            نوفر مساحة مرتبة وواضحة لاستكشاف الأكلات المنزلية والمخبوزات والحلويات، بحيث يجد المستخدم خيارات متنوعة
+            بطعم البيت وجودة موثوقة وتجربة سهلة.
+          </p>
+        </div>
+        <div class="feature-media">
+          <img src="assets/home-feature-food.png" alt="طبق أرز ودجاج منزلي">
+        </div>
+      </section>
+
+      <section class="feature-strip feature-strip-reversed" aria-label="نفس AI">
+        <div class="feature-media">
+          <img src="assets/home-feature-ai-food.png" alt="طبق حلويات منزلية">
+        </div>
+        <div class="feature-copy">
+          <p class="feature-kicker">نفس AI</p>
+          <h2>مساعد ذكي داخل المتجر يساعد على العثور على الأطعمة المناسبة بسرعة ودقة.</h2>
+          <p>
+            يعتمد نفس AI على فهم كلمات البحث والذوق العام، ثم يساعد المستخدم في الوصول إلى الأكلات الأقرب لرغبته،
+            سواء كان يبحث عن طبق يومي أو حلويات أو وجبة منزلية بطابع معيّن.
+          </p>
+        </div>
+      </section>
+
+      <section class="stats-section" aria-label="إحصائيات المتجر">
+        <article class="stat-card">
+          <strong class="stat-number" data-target="128">١٢٨</strong>
+          <span class="stat-label">متجر مشارك</span>
+        </article>
+        <article class="stat-card">
+          <strong class="stat-number" data-target="684">٦٨٤</strong>
+          <span class="stat-label">أكلة منزلية</span>
+        </article>
+        <article class="stat-card">
+          <strong class="stat-number" data-target="2450">٢,٤٥٠</strong>
+          <span class="stat-label">زائر يوميًا</span>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>متجر نفس</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

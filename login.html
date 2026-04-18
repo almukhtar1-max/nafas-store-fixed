@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تسجيل الدخول | متجر نفس</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-page">
+  <main class="login-shell">
+    <section class="login-card" aria-labelledby="loginTitle">
+      <a class="login-brand" href="index.html" aria-label="العودة إلى الصفحة الرئيسية">
+        <img src="assets/logo-nafas.png" alt="شعار متجر نفس">
+      </a>
+
+      <div class="auth-tabs" role="tablist" aria-label="خيارات الحساب">
+        <button class="auth-tab is-active" type="button" data-auth-mode="login">تسجيل الدخول</button>
+        <button class="auth-tab" type="button" data-auth-mode="register">إنشاء حساب</button>
+      </div>
+
+      <h1 id="loginTitle">تسجيل الدخول</h1>
+      <p class="login-subtitle" id="authSubtitle">أدخل بريدك الإلكتروني والرمز للانتقال مباشرة إلى المتجر</p>
+      <p class="auth-message" id="authMessage" hidden></p>
+
+      <form class="login-form" id="authForm">
+        <label for="email">البريد الإلكتروني</label>
+        <input id="email" name="email" type="email" placeholder="أدخل بريدك الإلكتروني" required>
+
+        <div class="auth-username-field" id="usernameField" hidden>
+          <label for="username">اسم المستخدم</label>
+          <input id="username" name="username" type="text" placeholder="أدخل اسم المستخدم">
+        </div>
+
+        <label for="password">الرمز</label>
+        <input id="password" name="password" type="password" placeholder="أدخل الرمز" required>
+
+        <div class="auth-otp-field" id="otpField" hidden>
+          <label for="otp">رمز التحقق OTP</label>
+          <input id="otp" name="otp" type="text" inputmode="numeric" placeholder="أدخل رمز التحقق المرسل إلى بريدك">
+        </div>
+
+        <button type="submit" class="primary-btn" id="submitAuthBtn">تسجيل الدخول</button>
+        <button type="button" class="secondary-btn" id="guestBtn">دخول كزائر</button>
+      </form>
+
+      <p class="register-text" id="authSwitchText">ليس لديك حساب؟ <a href="#" id="authSwitchLink">سجل الآن</a></p>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

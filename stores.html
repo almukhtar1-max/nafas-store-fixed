@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المتجر | متجر نفس</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="stores-page">
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="brand-group">
+        <a class="brand" href="index.html" aria-label="العودة إلى الصفحة الرئيسة">
+          <img src="assets/logo-nafas.png" alt="شعار متجر نفس">
+        </a>
+        <a class="store-link store-link-profile" href="stores.html" aria-label="الانتقال إلى صفحة المتجر">
+          <span class="store-link-text">المتجر</span>
+        </a>
+      </div>
+      <div class="account-menu">
+        <button class="account-trigger header-frame-button" type="button" aria-expanded="false" aria-controls="accountDropdown">
+          <span class="account-trigger-content">
+            <span class="account-label">تسجيل الدخول</span>
+          </span>
+        </button>
+
+        <div class="dropdown-panel" id="accountDropdown">
+          <a href="login.html">إدارة الحساب</a>
+          <a href="my-store.html">متجري</a>
+          <a href="login.html">المفضلة</a>
+          <a href="login.html">تسجيل الخروج</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="stores-main stores-main-grid">
+      <section class="store-catalog-shell" aria-label="منتجات المتجر">
+        <div class="catalog-search-box">
+          <input id="storeSearch" name="dish" type="search" placeholder="مثال: مندي، كبسة، شاورما..." autocomplete="off">
+        </div>
+
+        <section class="search-results-list" id="productResultsGrid" aria-live="polite"></section>
+        <section class="catalog-categories" id="catalogCategories"></section>
+        <p class="empty-state" id="emptyState" hidden>لا توجد منتجات مطابقة لكلمة البحث الحالية.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>متجر نفس</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

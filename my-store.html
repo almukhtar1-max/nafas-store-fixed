@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>متجري | متجر نفس</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="my-store-page">
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="brand-group">
+        <a class="brand" href="index.html" aria-label="العودة إلى الصفحة الرئيسة">
+          <img src="assets/logo-nafas.png" alt="شعار متجر نفس">
+        </a>
+        <a class="store-link store-link-profile" href="stores.html" aria-label="الانتقال إلى صفحة المتجر">
+          <span class="store-link-text">المتجر</span>
+        </a>
+      </div>
+      <div class="account-menu">
+        <button class="account-trigger header-frame-button" type="button" aria-expanded="false" aria-controls="accountDropdown">
+          <span class="account-trigger-content">
+            <span class="account-label">تسجيل الدخول</span>
+          </span>
+        </button>
+
+        <div class="dropdown-panel" id="accountDropdown">
+          <a href="login.html">إدارة الحساب</a>
+          <a href="my-store.html">متجري</a>
+          <a href="login.html">المفضلة</a>
+          <a href="login.html">تسجيل الخروج</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="my-store-main">
+      <section class="merchant-panel">
+        <div class="merchant-panel-head">
+          <h1>لوحة متجري</h1>
+          <p id="merchantGreeting">أدخل بيانات متجرك وابدأ بإضافة منتجاتك.</p>
+        </div>
+
+        <p class="auth-message" id="merchantMessage" hidden></p>
+
+        <form class="merchant-form" id="merchantStoreForm">
+          <div class="merchant-form-grid">
+            <label>
+              اسم المتجر
+              <input id="merchantStoreName" name="storeName" type="text" placeholder="اكتب اسم المتجر" required>
+            </label>
+            <label>
+              رقم الهاتف
+              <div class="phone-field">
+                <span>+968</span>
+                <input id="merchantPhone" name="phone" type="tel" inputmode="numeric" placeholder="7XXXXXXX" maxlength="8" required>
+              </div>
+            </label>
+          </div>
+          <label>
+            وصف المتجر
+            <textarea id="merchantStoreDescription" name="description" rows="4" placeholder="اكتب وصفًا مختصرًا عن متجرك" required></textarea>
+          </label>
+          <button class="primary-btn merchant-save-btn" type="submit">حفظ بيانات المتجر</button>
+        </form>
+
+        <section class="merchant-store-summary" id="merchantStoreSummary" hidden>
+          <div class="merchant-summary-card">
+            <div>
+              <p class="merchant-summary-label">اسم المتجر</p>
+              <h2 id="summaryStoreName"></h2>
+            </div>
+            <p id="summaryStorePhone"></p>
+            <p id="summaryStoreDescription"></p>
+          </div>
+          <div class="merchant-summary-actions">
+            <button class="secondary-btn" id="editStoreBtn" type="button">تعديل بيانات المتجر</button>
+            <button class="primary-btn" id="showProductFormBtn" type="button">إضافة المنتجات</button>
+          </div>
+        </section>
+
+        <section class="merchant-product-editor" id="merchantProductEditor" hidden>
+          <h2 id="productEditorTitle">إضافة منتج جديد</h2>
+          <form class="merchant-form" id="merchantProductForm">
+            <input id="productId" name="productId" type="hidden">
+            <div class="merchant-form-grid">
+              <label>
+                اسم الأكلة
+                <input id="productName" name="productName" type="text" placeholder="اسم الأكلة" required>
+              </label>
+              <label>
+                الصنف
+                <select id="productCategory" name="category" required>
+                  <option value="">اختر الصنف</option>
+                  <option value="فطور">فطور</option>
+                  <option value="غداء">غداء</option>
+                  <option value="عشاء">عشاء</option>
+                  <option value="حلويات">حلويات</option>
+                </select>
+              </label>
+            </div>
+            <label>
+              وصف الأكلة
+              <textarea id="productDescription" name="description" rows="4" placeholder="اكتب وصف المنتج" required></textarea>
+            </label>
+            <div class="merchant-form-grid">
+              <label>
+                المحافظة
+                <select id="productGovernorate" name="governorate" required></select>
+              </label>
+              <label>
+                الولاية
+                <select id="productWilaya" name="wilaya" required></select>
+              </label>
+            </div>
+            <div class="merchant-form-grid">
+              <label>
+                السعر بالريال العماني
+                <input id="productPrice" name="price" type="number" min="0" step="0.100" placeholder="2.500" required>
+              </label>
+              <label>
+                الصورة الأصلية
+                <input id="productMainImage" name="mainImage" type="file" accept="image/*">
+              </label>
+            </div>
+            <label>
+              الصور الفرعية
+              <input id="productGalleryImages" name="galleryImages" type="file" accept="image/*" multiple>
+            </label>
+            <div class="image-preview-strip" id="productImagePreview"></div>
+            <div class="merchant-summary-actions">
+              <button class="primary-btn" type="submit">حفظ المنتج</button>
+              <button class="secondary-btn" id="cancelProductEditBtn" type="button">إلغاء</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="merchant-products-list" id="merchantProductsListSection" hidden>
+          <div class="merchant-panel-head merchant-panel-head-inline">
+            <h2>منتجات متجري</h2>
+          </div>
+          <div class="merchant-products-grid" id="merchantProductsGrid"></div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>متجر نفس</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
