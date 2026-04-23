@@ -2,14 +2,20 @@
 
 لحل مشكلة "ENOTFOUND base" وتفعيل تسجيل الدخول ورفع الصور، اتبع الخطوات التالية بدقة في لوحة تحكم Vercel:
 
-## 1. ربط قاعدة البيانات (Postgres)
-هذه الخطوة ستحل مشكلة "ENOTFOUND base" وتفعل تسجيل الدخول:
-1. اذهب إلى مشروعك في [Vercel Dashboard](https://vercel.com/dashboard).
-2. اضغط على تبويب **Storage**.
-3. اختر **Connect Database** ثم اختر **Vercel Postgres**.
-4. اضغط على **Create New** واتبع الخطوات (اختر أقرب منطقة لك، مثلاً Frankfurt أو Washington).
-5. بعد الإنشاء، اضغط على **Connect** لربطها بمشروعك.
-6. **مهم جداً:** اذهب إلى تبويب **Settings** ثم **Environment Variables** وتأكد من ظهور متغيرات تبدأ بـ `POSTGRES_`.
+## 1. ربط قاعدة البيانات (Supabase)
+بما أنك تستخدم Supabase، اتبع هذه الخطوات لربطها بـ Vercel:
+
+1. اذهب إلى مشروعك في [Supabase Dashboard](https://app.supabase.com/).
+2. اذهب إلى **Project Settings** (أيقونة الترس) ثم **Database**.
+3. ابحث عن قسم **Connection string**، اختر **URI**، وقم بنسخ الرابط.
+   - الرابط يشبه هذا: `postgresql://postgres:[YOUR-PASSWORD]@db.xxxx.supabase.co:5432/postgres`
+   - **ملاحظة:** تأكد من استبدال `[YOUR-PASSWORD]` بكلمة المرور التي اخترتها عند إنشاء مشروع Supabase.
+4. الآن اذهب إلى مشروعك في **Vercel** -> **Settings** -> **Environment Variables**.
+5. أضف متغيراً جديداً باسم `DATABASE_URL` وضع الرابط الذي نسخته في القيمة (Value).
+6. اضغط **Save**.
+7. اذهب إلى **Deployments** واعمل **Redeploy** لآخر نسخة.
+
+**ملاحظة:** إذا لم تكن تتذكر كلمة مرور Supabase، يمكنك إعادة تعيينها من نفس صفحة Database في Supabase بالضغط على **Reset database password**.
 
 ## 2. تفعيل رفع الصور (Vercel Blob)
 هذه الخطوة ضرورية لعمل إضافة المنتجات والصور:
